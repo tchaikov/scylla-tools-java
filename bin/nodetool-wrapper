@@ -34,7 +34,7 @@ fi
 # if the command doesn't exist. Thus we can use the exit code to check whether
 # scylla-nodetool implements a given command or not, and therefore, dispatch
 # the request to the appropriate nodetool variant.
-"$SCYLLA_PATH" nodetool "$1" --help &>/dev/null
+"$SCYLLA_PATH" nodetool "$@" --help &>/dev/null
 if [[ $? -eq 100 ]]
 then
     exec "$NODETOOL_PATH" "$@"
